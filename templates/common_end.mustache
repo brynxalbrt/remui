@@ -1,0 +1,31 @@
+
+            </div>
+        </div>
+    </div>
+    {{{ output.standard_after_main_region_html }}}
+    </div>
+    {{> theme_remui/footer }}
+    
+</div>
+</body>
+</html>
+{{#js}}
+    {{#enabledictionary}}
+        {{^editingenabled}}
+        require(['theme_remui/dictionary'], function(dictionary) {
+            dictionary.init();
+        });
+        {{/editingenabled}}
+    {{/enabledictionary}}
+    
+    {{#focusdata.enabled}}
+        require(['theme_remui/course'], function(course){
+            course.init({{focusdata.on}});
+        });
+    {{/focusdata.enabled}}
+
+    require(['theme_remui/loader']);
+    require(['theme_remui/drawer'], function(mod) {
+        mod.init();
+    });
+{{/js}}

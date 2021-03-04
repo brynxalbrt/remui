@@ -1,0 +1,60 @@
+
+{{!
+    @template theme_remui/admin_setting_tabs
+
+
+    Example context (json):
+    {
+        "tabs": [
+         {
+            "name": "tab1",
+            "active": 0,
+            "displayname": "Inactive tab1",
+            "html": "<p>Tab 1 content</p>"
+         },
+         {
+            "name": "tab2",
+            "active": 1,
+            "displayname": "Active tab2",
+            "html": "<p>Tab 2 content</p>"
+         }
+        ]
+    }
+}}
+<ul class="nav nav-tabs" role="tablist">
+    {{#tabs}}
+        <li class="nav-item">
+            <a href="#{{name}}" class="nav-link {{#active}}active{{/active}} {{ customclass }}" data-toggle="tab" role="tab">{{displayname}}</a>
+        </li>
+    {{/tabs}}
+</ul>
+<div class="tab-content mt-3">
+    {{#tabs}}
+        <div class="tab-pane {{#active}}active{{/active}}" id="{{name}}" role="tabpanel">
+            {{{html}}}
+        </div>
+    {{/tabs}}
+</div>
+
+{{#js}}
+
+    require(['jquery'], function ($) {
+        function activeTab(tab) {
+            var tabname = $(tab).attr('href').substr(1);
+            $('[name="activetab"]').val(tabname);
+            if(tab.hasClass('remuitab')) {
+                $('button[type="submit"]').hide();
+                $('#onLicensePage').val(1);
+            } else {
+                $('button[type="submit"]').show();
+                $('#onLicensePage').val(0);
+            }
+        }
+        $(document).ready(function() {
+            activeTab($('.settingsform .nav-tabs .nav-link.active'));
+        });
+        $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+            activeTab($(this));
+        });
+    });
+{{/js}}
