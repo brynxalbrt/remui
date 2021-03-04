@@ -1,0 +1,25 @@
+
+{{!
+    @template core_course/favouriteicon
+
+    This template renders the favourite icon for a course.
+
+    Example context (json):
+    {
+        "id": 3,
+        "isfavourite": true
+    }
+}}
+<span id="favorite-icon-{{ id }}-{{ uniqid }}" class="ml-1 mr-2"
+    data-region="favourite-icon"
+    data-course-id="{{id}}"
+    >
+    <span
+        class="{{^isfavourite}}hidden{{/isfavourite}}"
+        data-region="is-favourite"
+        aria-hidden="{{^isfavourite}}true{{/isfavourite}}{{#isfavourite}}false{{/isfavourite}}"
+        >
+        <i class="icon fa fa-star fa-fw" style="height:40px; width: 40px; font-size: 40px;" title="{{#str}} favourite, core_course {{/str}}" aria-label="{{#str}} favourite, core_course {{/str}}"></i>
+        <span class="sr-only">{{#str}} aria:favourite, core_course {{/str}}</span>
+    </span>
+</span>
