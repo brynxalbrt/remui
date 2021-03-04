@@ -1,0 +1,40 @@
+
+{{!
+    @template core/action_menu
+
+    Action menu.
+
+    Example context (json):
+    {
+        "classes": "",
+        "primary": {
+            "items": [{"rawhtml": "<p>Item in primary menu</p>"}]
+        },
+        "secondary": {
+            "items": [{"rawhtml": "<p>Item in secondary menu</p>"}]
+        }
+    }
+}}
+<div class="action-menu {{classes}} d-inline-flex"{{#attributes}} {{name}}="{{value}}"{{/attributes}}>
+    {{#primary}}
+
+        <div class="{{classes}} d-flex"{{#attributes}} {{name}}="{{value}}"{{/attributes}}>
+
+            {{#prioritise}}{{> core/action_menu_trigger }}{{/prioritise}}
+
+            {{#items}}
+                <div class="action-menu-item">
+                    {{> core/action_menu_item }}
+                </div>
+            {{/items}}
+
+            {{^prioritise}}
+                <div class="action-menu-trigger">
+                    {{> core/action_menu_trigger }}
+                </div>
+            {{/prioritise}}
+
+        </div>
+
+    {{/primary}}
+</div>
