@@ -1,0 +1,24 @@
+
+{{!
+    @template calendar/calendar_threemonth
+
+    Calendar view to show three months as a block.
+
+    The purpose of this template is to render a set of three months of calendar_mini in a block.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * none
+
+    Example context (json):
+    {
+    }
+}}
+<div data-period="month" class="calendarwrapper"{{!
+    }} data-previous-year="{{previousperiod.year}}" data-previous-month="{{previousperiod.mon}}" {{!
+    }} data-next-year="{{nextperiod.year}}" data-context-id="{{defaulteventcontext}}" data-next-month="{{nextperiod.mon}}" {{!
+    }}>
+    {{> core_calendar/calendar_mini}}
+</div>
