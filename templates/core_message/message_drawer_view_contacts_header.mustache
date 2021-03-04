@@ -1,0 +1,38 @@
+
+{{!
+    @template core_message/message_drawer_view_contacts_header
+
+    This template will render the header for the contacts page of
+    the message drawer.
+
+    Classes required for JS:
+    * none
+
+    Data attributes required for JS:
+    * All data attributes are required
+
+    Context variables required for this template:
+    * userid The logged in user id
+    * urls The URLs for the popover
+
+    Example context (json):
+    {}
+
+}}
+<div class="hidden border-bottom px-2 py-3" aria-hidden="true" data-region="view-contacts">
+    <div class="d-flex align-items-center">
+        <div class="align-self-stretch">
+            <a class="h-100 d-flex align-items-center mr-2" href="#" data-route-back role="button">
+                {{> core_message/message_drawer_icon_back }}
+            </a>
+        </div>
+        <div>
+            {{#str}} contacts, core_message {{/str}}
+        </div>
+        <div class="ml-auto">
+            <a href="#" data-route="view-search" role="button" aria-label="{{#str}} search, core_search {{/str}}">
+                {{#pix}} a/search, core {{/pix}}
+            </a>
+        </div>
+    </div>
+</div>
