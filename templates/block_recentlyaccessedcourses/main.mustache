@@ -1,0 +1,35 @@
+
+{{!
+    @template block_recentlyaccessedcourses/main
+
+    This template renders the main content area for the Recently accessed courses block.
+
+    Example context (json):
+    {
+        "userid": 2,
+        "nocoursesimgurl": "https://moodlesite/theme/image.php/boost/block_recentlyaccessedcourses/1535727318/courses"
+    }
+}}
+
+<div id="block-recentlyaccessedcourses-{{uniqid}}" class="block-recentlyaccessedcourses block-cards" data-region="recentlyaccessedcourses"
+        data-userid="{{userid}}" data-displaycoursecategory="{{displaycategories}}">
+    <div class="container-fluid p-0">
+        {{> block_recentlyaccessedcourses/recentlyaccessedcourses-view }}
+    </div>
+</div>
+{{#js}}
+require(
+[
+    'jquery',
+    'theme_remui/recentlyaccessedcourses'
+],
+function(
+    $,
+    Main
+) {
+    var root = $('#block-recentlyaccessedcourses-{{uniqid}}');
+    var userid = root.attr('data-userid');
+
+    Main.init(userid, root);
+});
+{{/js}}
