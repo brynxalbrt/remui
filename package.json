@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/brynxalbrt/remui/issues"
   },
-  "homepage": "https://github.com/brynxalbrt/remui#readme"
+  "homepage": "https://github.com/brynxalbrt/remui#readme",
+  "dependencies": {
+    "tailwindcss": "^2.0.3"
+  }
 }
