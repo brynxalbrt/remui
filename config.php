@@ -4,7 +4,7 @@ defined('MOODLE_INTERNAL') || die();
 require_once(__DIR__ . '/lib.php');
 
 $THEME->name = 'remui';
-$THEME->sheets = ['remui-min', 'custom'];
+$THEME->sheets = ['tailwind-min', 'custom'];
 $THEME->editor_sheets = [];
 $THEME->editor_scss = ['editor'];
 $THEME->usefallback = true;
